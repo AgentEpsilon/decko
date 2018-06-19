@@ -1,14 +1,17 @@
-# decko [![NPM Version](https://img.shields.io/npm/v/decko.svg?style=flat)](https://npmjs.com/package/decko) [![Build Status](https://travis-ci.org/developit/decko.svg?branch=master)](https://travis-ci.org/developit/decko)
+# decko [![NPM Version](https://img.shields.io/npm/v/@agentepsilon/decko.svg?style=flat)](https://npmjs.com/package/@agentepsilon/decko) [![Build Status](https://travis-ci.org/agentepsilon/decko.svg?branch=master)](https://travis-ci.org/agentepsilon/decko)
+
+## This is a fork of [developit's decko](https://github.com/developit/decko) that renames the incorrectly named "debounce" to "throttle", and adds an actual "debounce".
 
 A concise implementation of the three most useful [decorators](https://github.com/wycats/javascript-decorators):
 
 - `@bind`: make the value of `this` constant within a method
 - `@throttle`: throttle calls to a method
+- `@debounce`: debounce calls to a method
 - `@memoize`: cache return values based on arguments
 
 Decorators help simplify code by replacing the noise of common patterns with declarative annotations.
 Conversely, decorators can also be overused and create obscurity.
-Decko establishes 3 standard decorators that are immediately recognizable, so you can avoid creating decorators in your own codebase.
+Decko establishes ~~3~~ **4** standard decorators that are immediately recognizable, so you can avoid creating decorators in your own codebase.
 
 > 💡 **Tip:** decko is particularly well-suited to [**Preact Classful Components**](https://github.com/developit/preact).
 >
@@ -18,10 +21,10 @@ Decko establishes 3 standard decorators that are immediately recognizable, so yo
 
 ## Installation
 
-Available on [npm](https://npmjs.com/package/decko):
+Available on [npm](https://npmjs.com/package/@agentepsilon/decko):
 
 ```sh
-npm i -S decko
+npm i -S @agentepsilon/decko
 ```
 
 
@@ -30,7 +33,7 @@ npm i -S decko
 Each decorator method is available as a named import.
 
 ```js
-import { bind, memoize, throttle } from 'decko';
+import { bind, memoize, throttle, debounce } from 'decko';
 ```
 
 
@@ -110,6 +113,25 @@ let e = new Example();
 for (let i=1000; i--) e.foo();
 ```
 
+
+
+
+### `@debounce`
+
+> Debounce calls to the decorated function. To debounce means "call this only after it has not been called for N ms".
+> All outward function calls clear any currently queued calls, then schedule a new call, effectively delaying the call further.
+> As in `@throttle`, only the most recent arguments are passed on.
+> 
+> ##### Options:
+> `delay: 0` - _The number of milliseconds to wait for repeat calls for._
+
+```js
+class Example {
+	@debounce
+	foo() {
+		return this;
+	}
+}
 
 ---
 
