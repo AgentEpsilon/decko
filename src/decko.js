@@ -28,6 +28,22 @@ let fns = {
 		};
 	},
 
+	/** let debounced = debounce(500, fn); */
+	debounce(fn, opts) {
+		if (typeof opts === 'function') { let p = fn; fn = opts; opts = p; }
+		let delay = opts && opts.delay || opts || 0,
+			args, context, timer;
+		return function(...a) {
+			args = a;
+			context = this;
+			if (timer) clearTimeout(timer);
+			timer = setTimeout( () => {
+				fn.apply(context, args);
+				args = context = timer = null;
+			}, delay);
+		};
+	},
+
 	bind(target, key, { value: fn }) {
 		return {
 			configurable: true,
@@ -47,10 +63,11 @@ let fns = {
 
 let memoize = multiMethod(fns.memoize),
 	throttle = multiMethod(fns.throttle),
+	debounce = multiMethod(fns.debounce),
 	bind = multiMethod((f,c)=>f.bind(c), ()=>fns.bind);
 
-export { memoize, throttle, bind };
-export default { memoize, throttle, bind };
+export { memoize, throttle, debounce, bind };
+export default { memoize, throttle, debounce, bind };
 
 
 /** Creates a function that supports the following calling styles:
