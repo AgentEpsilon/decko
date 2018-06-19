@@ -1,5 +1,5 @@
 {
-  "name": "decko",
+  "name": "@agentepsilon/decko",
   "version": "1.2.0",
   "main": "dist/decko.js",
   "types": "dist/decko.d.ts",
@@ -15,11 +15,11 @@
   },
   "files": [
     "src",
-	"dist"
+    "dist"
   ],
   "repository": {
     "type": "git",
-    "url": "git://github.com/developit/decko.git"
+    "url": "git://github.com/AgentEpsilon/decko.git"
   },
   "devDependencies": {
     "babel": "^5.8.21",
