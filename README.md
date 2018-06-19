@@ -3,7 +3,7 @@
 A concise implementation of the three most useful [decorators](https://github.com/wycats/javascript-decorators):
 
 - `@bind`: make the value of `this` constant within a method
-- `@debounce`: throttle calls to a method
+- `@throttle`: throttle calls to a method
 - `@memoize`: cache return values based on arguments
 
 Decorators help simplify code by replacing the noise of common patterns with declarative annotations.
@@ -30,7 +30,7 @@ npm i -S decko
 Each decorator method is available as a named import.
 
 ```js
-import { bind, memoize, debounce } from 'decko';
+import { bind, memoize, throttle } from 'decko';
 ```
 
 
@@ -87,10 +87,10 @@ let three = e.expensive(2);
 
 
 
-### `@debounce`
+### `@throttle`
 
-> Throttle calls to the decorated function. To debounce means "call this at most once per N ms".
-> All outward function calls get collated into a single inward call, and only the latest (most recent) arguments as passed on to the debounced function.
+> Throttle calls to the decorated function. To throttle means "call this at most once per N ms".
+> All outward function calls get collated into a single inward call, and only the latest (most recent) arguments as passed on to the throttled function.
 >
 > ##### Options:
 >
@@ -98,7 +98,7 @@ let three = e.expensive(2);
 
 ```js
 class Example {
-	@debounce
+	@throttle
 	foo() {
 		return this;
 	}

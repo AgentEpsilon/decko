@@ -13,8 +13,8 @@ let fns = {
 		};
 	},
 
-	/** let throttled = debounce(10, console.log); */
-	debounce(fn, opts) {
+	/** let throttled = throttle(10, console.log); */
+	throttle(fn, opts) {
 		if (typeof opts==='function') { let p = fn; fn = opts; opts = p; }
 		let delay = opts && opts.delay || opts || 0,
 			args, context, timer;
@@ -46,11 +46,11 @@ let fns = {
 
 
 let memoize = multiMethod(fns.memoize),
-	debounce = multiMethod(fns.debounce),
+	throttle = multiMethod(fns.throttle),
 	bind = multiMethod((f,c)=>f.bind(c), ()=>fns.bind);
 
-export { memoize, debounce, bind };
-export default { memoize, debounce, bind };
+export { memoize, throttle, bind };
+export default { memoize, throttle, bind };
 
 
 /** Creates a function that supports the following calling styles:

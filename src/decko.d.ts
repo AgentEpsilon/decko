@@ -22,9 +22,9 @@ export function memoize(caseSensitive?: boolean, cache?: Object): MethodDecorato
 /**
  * @param delay number
  */
-export function debounce<T>(
+export function throttle<T>(
     target: Object,
     propertyKey: string | symbol,
     descriptor?: TypedPropertyDescriptor<T>
 ): TypedPropertyDescriptor<T> | void;
-export function debounce(delay?: number): MethodDecorator;
+export function throttle(delay?: number): MethodDecorator;

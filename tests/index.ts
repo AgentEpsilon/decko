@@ -1,12 +1,12 @@
-import { bind, debounce, memoize } from '..';
+import { bind, throttle, memoize } from '..';
 class C {
     @bind
     foo() { }
 
-    @debounce
+    @throttle
     moo() { }
 
-    @debounce(1000)
+    @throttle(1000)
     mooWithCustomDelay() { }
 
     @memoize

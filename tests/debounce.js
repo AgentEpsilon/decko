@@ -1,15 +1,15 @@
-import { debounce } from '..';
+import { throttle } from '..';
 import { expect } from 'chai';
 
 /*global describe,it*/
 
-describe('debounce()', () => {
-	it('should debounce when used as a simple decorator', next => {
+describe('throttle()', () => {
+	it('should throttle when used as a simple decorator', next => {
 		let c = {
 			calls: 0,
 			args: null,
 
-			@debounce
+			@throttle
 			foo(...args) {
 				c.calls++;
 				c.args = args;
@@ -31,8 +31,8 @@ describe('debounce()', () => {
 		}, 20);
 	});
 
-	it('should debounce when used as a function', next => {
-		let c = debounce( (...args) => {
+	it('should throttle when used as a function', next => {
+		let c = throttle( (...args) => {
 				m.calls++;
 				m.args = args;
 			}),
@@ -52,7 +52,7 @@ describe('debounce()', () => {
 	});
 
 	it('should support passing a delay', next => {
-		let c = debounce(5, (...args) => {
+		let c = throttle(5, (...args) => {
 				m.calls.push(args);
 			}),
 			m = { calls:[] };
