@@ -28,3 +28,13 @@ export function throttle<T>(
     descriptor?: TypedPropertyDescriptor<T>
 ): TypedPropertyDescriptor<T> | void;
 export function throttle(delay?: number): MethodDecorator;
+
+/**
+ * @param delay number
+ */
+export function debounce<T>(
+    target: Object,
+    propertyKey: string | symbol,
+    descriptor?: TypedPropertyDescriptor<T>
+): TypedPropertyDescriptor<T> | void;
+export function debounce(delay?: number): MethodDecorator;
