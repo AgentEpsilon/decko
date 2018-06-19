@@ -1,6 +1,6 @@
 {
   "name": "@agentepsilon/decko",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "main": "dist/decko.js",
   "types": "dist/decko.d.ts",
   "description": "A collection of the most useful property decorators.",

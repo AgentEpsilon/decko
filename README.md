@@ -2,7 +2,7 @@
 
 ## This is a fork of [developit's decko](https://github.com/developit/decko) that renames the incorrectly named "debounce" to "throttle", and adds an actual "debounce".
 
-A concise implementation of the three most useful [decorators](https://github.com/wycats/javascript-decorators):
+A concise implementation of the ~~three~~ **four** most useful [decorators](https://github.com/wycats/javascript-decorators):
 
 - `@bind`: make the value of `this` constant within a method
 - `@throttle`: throttle calls to a method
@@ -33,7 +33,7 @@ npm i -S @agentepsilon/decko
 Each decorator method is available as a named import.
 
 ```js
-import { bind, memoize, throttle, debounce } from 'decko';
+import { bind, memoize, throttle, debounce } from '@agentepsilon/decko';
 ```
 
 
@@ -132,6 +132,7 @@ class Example {
 		return this;
 	}
 }
+``
 
 ---
 
