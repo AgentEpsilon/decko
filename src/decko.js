@@ -36,7 +36,7 @@ let fns = {
 		return function(...a) {
 			args = a;
 			context = this;
-			if (timer) clearTimeout(timer);
+			clearTimeout(timer);
 			timer = setTimeout( () => {
 				fn.apply(context, args);
 				args = context = timer = null;
